@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-interface AboutProps {
+interface DatacallProps {
     range: string;
 }
 
-const About: React.FC<AboutProps> = ({ range }) => {
+const Datacall: React.FC<DatacallProps> = ({ range }) => {
     const [sheetData, setSheetData] = useState<string[] | null>(null);
 
     useEffect(() => {
@@ -53,4 +53,4 @@ const About: React.FC<AboutProps> = ({ range }) => {
     )
 }
 
-export default About;
+export default Datacall;
