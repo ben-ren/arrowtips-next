@@ -4,6 +4,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
+        const {range} = req.query;
+        console.log("range: " + range);
+
         const client = new google.auth.JWT({
             email: keys.client_email,
             key: keys.private_key,
@@ -16,7 +19,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         
         const opt: sheets_v4.Params$Resource$Spreadsheets$Values$Get = {
             spreadsheetId: '1qic8StIuWxogoeZlupG9HvTvts6-jXMS0JZ1J6tZNn4',
-            range: 'Home_sheet!A2:B2',
+            range: range as string,
+            //'Sheet1!A2:B2'
         };
 
         const { data } = await gsapi.spreadsheets.values.get(opt);
