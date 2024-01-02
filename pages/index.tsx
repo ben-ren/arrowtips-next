@@ -15,8 +15,8 @@ export default function Home({sheetdata}: HomeProps) {
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
       <div>
+        <Datacall range ='Sheet1!A1'/>
         <Datacall range ='Sheet1!A2'/>
-        <Datacall range ='Sheet1!B2'/>
       </div>
     </main>
   )
