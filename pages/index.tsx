@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Inter } from 'next/font/google'
 import { getServerSideProps } from './api/backend_system';
 import Datacall from './api/Datacall';
+import Navbar from './components/navbar';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,9 @@ export default function Home({sheetdata}: HomeProps) {
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
+      <p><Datacall range='Sheet1!A1'/></p>
+      <Navbar/>
       <div>
-        <p><Datacall range='Sheet1!A1'/></p>
         <p><Datacall range='Sheet1!A2'/></p>
       </div>
     </main>
