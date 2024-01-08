@@ -3,12 +3,16 @@ import Datacall from "./api/Datacall";
 import Navbar from './components/navbar';
 
 export default function Posts(){
+    const dataArray = Datacall({range: "Sheet1!C:C"});
+    var dataEntries:string[] = (dataArray as string[][]).flatMap(innerArray => innerArray);
+    console.log(dataEntries, dataEntries.length);
+
     return (
         <div>
-            <p><Datacall range='Sheet1!C1'/></p>
+            <h1>{dataEntries[0]}</h1>
             <Navbar/>
             <div>
-                <p><Datacall range='Sheet1!C2'/></p>
+                <p>{dataEntries[1]}</p>
             </div>
         </div>
     )

@@ -13,13 +13,16 @@ interface HomeProps {
 export { getServerSideProps }; // Export for Next.js to recognize
 
 export default function Home({sheetdata}: HomeProps) {
+  const dataArray = Datacall({range: "Sheet1!A:A"});
+  var dataEntries:string[] = (dataArray as string[][]).flatMap(innerArray => innerArray);
+  console.log(dataEntries, dataEntries.length);
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
-      <p><Datacall range='Sheet1!A1'/></p>
+      <h1>{dataEntries[0]}</h1>
       <Navbar/>
       <div>
-        <p><Datacall range='Sheet1!A2'/></p>
+        <p>{dataEntries[1]}</p>
       </div>
     </main>
   )

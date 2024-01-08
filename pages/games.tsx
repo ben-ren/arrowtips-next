@@ -3,14 +3,13 @@ import Datacall from "./api/Datacall";
 import Navbar from './components/navbar';
 
 export default function Games(){
-    const dataArray = Datacall({range: "Sheet1!D1:D3"});
-
+    const dataArray = Datacall({range: "Sheet1!D:D"});
     var dataEntries:string[] = (dataArray as string[][]).flatMap(innerArray => innerArray);
-    console.log(dataEntries);
+    console.log(dataEntries, dataEntries.length);
 
     return (
     <div>
-        <h1><Datacall range='Sheet1!D1'/></h1>
+        <h1>{dataEntries[0]}</h1>
         <Navbar/>
         <div>
             <a href={dataEntries[1]}>
