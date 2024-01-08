@@ -11,14 +11,18 @@ export default function Games(){
     <div>
         <h1>{dataEntries[0]}</h1>
         <Navbar/>
+
         <div>
-            <a href={dataEntries[1]}>
-                {dataEntries[1]}
-            </a>
-            <p></p>
-            <a href={dataEntries[2]}>
-                {dataEntries[2]}
-            </a>
+            {dataEntries.slice(1).map((entry, index) => (
+            //check entry isn't null or undefined before rendering
+            entry != null ?
+                <p key={index+1}>
+                    <a href={entry}>
+                        {entry}
+                    </a>
+                </p>
+            : null
+            ))}
         </div>
         
     </div>)

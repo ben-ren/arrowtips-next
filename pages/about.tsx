@@ -12,7 +12,12 @@ export default function About(){
             <h1>{dataEntries[0]}</h1>
             <Navbar/>
             <div>
-                <p>{dataEntries[1]}</p>
+                {dataEntries.slice(1).map((entry, index) => (
+                //check entry isn't null or undefined before rendering
+                entry != null ?
+                    <p key={index+1}>{entry}</p>
+                : null
+                ))}
             </div>
         </div>
     )
